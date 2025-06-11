@@ -58,9 +58,9 @@ BOT_STATS_TEXT = "<b>BOT UPTIME :</b>\n{uptime}"
 
 USER_REPLY_TEXT = "❌Jangan spam bang😅"
 
-START_MSG = os.environ.get("START_MESSAGE", "Hah? {mention}\n\nI Eh kenapa bang😹")
+START_MSG = os.environ.get("START_MESSAGE", "Hah? {mention}\n\nEh kenapa bang😹")
 
-FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hello {mention}\n\n<b>Masuk cengha/gerups dulu bre😹\n\nKindly Masuk ya pukimaks</b>")
+FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hi🙋🏿‍♂️ {mention}\n\n<b>Masuk cengha/gerups dulu bre😹\n\Jangan spam ye, masuk ya pukimaks</b>")
 
 
 
