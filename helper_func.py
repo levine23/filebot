@@ -7,6 +7,12 @@ from config import FORCE_SUB_CHANNEL, ADMINS
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
 
+from config import(
+    ADMINS,
+    FORCE_SUB_1,
+    FORCE_SUB_2,
+)
+
 
 
 
