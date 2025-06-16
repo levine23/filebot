@@ -125,24 +125,23 @@ async def start_command(client: Client, message: Message):
         )
         return
 
-    
-
-
-
-    
-    
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton(text="Join Channel", url=client.invitelink)
+            InlineKeyboardButton(text="Cʜᴀɴɴᴇʟ 𝟷 🦊", url=client.invitelink),
+            InlineKeyboardButton(text="Cʜᴀɴɴᴇʟ 𝟸 🐭", url=client.invitelink2),
+        ],
+        [
+            InlineKeyboardButton(text="Cʜᴀɴɴᴇʟ 𝟹 🐰", url=client.invitelink3),
+            InlineKeyboardButton(text="Cʜᴀɴɴᴇʟ 𝟺 🐼", url=client.invitelink4),
         ]
     ]
     try:
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text = 'Try Again',
+                    text = 'Rᴇʟᴏᴀᴅ 💁‍♂️',
                     url = f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ]
@@ -161,7 +160,7 @@ async def not_joined(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(buttons),
         quote = True,
         disable_web_page_preview = True
-    )
+    )    
 
 
 
