@@ -11,7 +11,7 @@ API_HASH = os.environ.get("API_HASH", "c91443b748be68477d9ee4995d30fd27")
 
 
 OWNER_ID = int(os.environ.get("OWNER_ID", "7566540245"))
-DB_URL = os.environ.get("DB_URL", "mongodb+srv://pakeya2:userbot@cluster0.vva0b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DB_URL = os.environ.get("DB_URL", "")
 DB_NAME = os.environ.get("DB_NAME", "userbot")
 
 
