@@ -105,10 +105,10 @@ async def start_command(client: Client, message: Message):
     else:
         reply_markup = InlineKeyboardMarkup(
             [
-                [
+                ]
                     InlineKeyboardButton("😊 About Me", callback_data = "about"),
                     InlineKeyboardButton("🔒 Close", callback_data = "close")
-                ]
+                [
             ]
         )
         await message.reply_text(
@@ -138,7 +138,7 @@ async def not_joined(client: Client, message: Message):
                 InlineKeyboardButton(
                     text = 'Rᴇʟᴏᴀᴅ 💁‍♂️',
                     url = f"https://t.me/{client.username}?start={message.command[1]}"
-                )
+                (
             ]
         )
     except IndexError:
