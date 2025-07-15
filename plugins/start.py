@@ -128,19 +128,18 @@ async def start_command(client: Client, message: Message):
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
     buttons = [
-        
+        [
             InlineKeyboardButton(text="Cʜᴀɴɴᴇʟ 𝟷 🦊", url=client.invitelink),
             InlineKeyboardButton(text="Cʜᴀɴɴᴇʟ 𝟸 🐭", url=client.invitelink2),
-        [
+        ]
+    ]
     try:
-        buttons.append(
-            ]
-                InlineKeyboardButton(
-                    text = 'Rᴇʟᴏᴀᴅ 💁‍♂️',
-                    url = f"https://t.me/{client.username}?start={message.command[1]}"
-                (
-            ]
-        )
+        buttons.append([
+            InlineKeyboardButton(
+                text='Rᴇʟᴏᴀᴅ 💁‍♂️',
+                url=f"https://t.me/{client.username}?start={message.command[1]}"
+            )
+        ])
     except IndexError:
         pass
 
