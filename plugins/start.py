@@ -138,7 +138,7 @@ async def not_joined(client: Client, message: Message):
                 InlineKeyboardButton(
                     text = 'Rᴇʟᴏᴀᴅ 💁‍♂️',
                     url = f"https://t.me/{client.username}?start={message.command[1]}"
-                )
+                
             ]
         )
     except IndexError:
