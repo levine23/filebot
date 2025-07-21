@@ -1,3 +1,4 @@
+from plugins import start, cbb, button_manager
 from aiohttp import web
 
 routes = web.RouteTableDef()
