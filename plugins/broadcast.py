@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from config import OWNER_ID, MONGO_URL
+from config import OWNER_ID, DB_URL, DB_NAME
 from pymongo import MongoClient
 from pyrogram.errors import FloodWait
 import asyncio
