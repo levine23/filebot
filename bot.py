@@ -55,6 +55,32 @@ class Bot(Client):
                 self.LOGGER(__name__).warning(f"Please Double Check The FORCE_SUB_CHANNEL2 Value And Make Sure Bot Is Admin In Channel With Invite Users Via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL2}")
                 self.LOGGER(__name__).info("\nBot Stopped. https://t.me/MadflixBots_Support For Support")
                 sys.exit()
+        if FORCE_SUB_CHANNEL3:
+            try:
+                link = (await self.get_chat(FORCE_SUB_CHANNEL3)).invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL3)
+                    link = (await self.get_chat(FORCE_SUB_CHANNEL3)).invite_link
+                self.invitelink3 = link
+            except Exception as a:
+                self.LOGGER(__name__).warning(a)
+                self.LOGGER(__name__).warning("Bot Can't Export Invite link From Force Sub Channel!")
+                self.LOGGER(__name__).warning(f"Please Double Check The FORCE_SUB_CHANNEL3 Value And Make Sure Bot Is Admin In Channel With Invite Users Via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL3}")
+                self.LOGGER(__name__).info("\nBot Stopped. https://t.me/MadflixBots_Support For Support")
+                sys.exit()
+        if FORCE_SUB_CHANNEL4:
+            try:
+                link = (await self.get_chat(FORCE_SUB_CHANNEL4)).invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL4)
+                    link = (await self.get_chat(FORCE_SUB_CHANNEL4)).invite_link
+                self.invitelink4 = link
+            except Exception as a:
+                self.LOGGER(__name__).warning(a)
+                self.LOGGER(__name__).warning("Bot Can't Export Invite link From Force Sub Channel!")
+                self.LOGGER(__name__).warning(f"Please Double Check The FORCE_SUB_CHANNEL4 Value And Make Sure Bot Is Admin In Channel With Invite Users Via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL4}")
+                self.LOGGER(__name__).info("\nBot Stopped. https://t.me/MadflixBots_Support For Support")
+                sys.exit()
         
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
