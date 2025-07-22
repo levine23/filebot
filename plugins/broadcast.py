@@ -4,10 +4,6 @@ from pymongo import MongoClient
 from pyrogram.errors import FloodWait
 import asyncio
 
-dbclient = pymongo.MongoClient(DB_URL)
-database = dbclient[DB_NAME]
-user_data = database['users']
-
 
 # Simpan user ke database (biar semua yang pernah interaksi tercatat)
 @Client.on_message(filters.private)
