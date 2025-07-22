@@ -1,39 +1,34 @@
 from pyrogram import Client, filters
-from database.database import add_user, del_user, full_userbase, present_user
 from config import OWNER_ID
-from pymongo import MongoClient
+from database import user_data
 from pyrogram.errors import FloodWait
 import asyncio
 
-
-# Simpan user ke database (biar semua yang pernah interaksi tercatat)
+# Simpan user saat DM (pakai fungsi dari database.py)
 @Client.on_message(filters.private)
 async def save_user(client, message):
-    await user_data.update_one(
-        {"user_id": message.from_user.id},
-        {"$set": {"user_id": message.from_user.id}},
-        upsert=True
-    )
+    if not await user_data.find_one({'_id': message.from_user.id}):
+        await user_data.insert_one({'_id': message.from_user.id})
 
 
-# Broadcast hanya untuk OWNER
+# Broadcast command khusus OWNER
 @Client.on_message(filters.command("broadcast") & filters.user(OWNER_ID))
-async def broadcast_message(client, message):
+async def broadcast(client, message):
     if len(message.command) < 2:
-        await message.reply("❌ Gunakan:\n`/broadcast pesan yang akan dikirim`")
+        await message.reply("❌ Gunakan:\n`/broadcast pesan`")
         return
 
     text = message.text.split(None, 1)[1]
     sent = 0
     failed = 0
 
-    users = await users_col.find().to_list(length=0)
+    users = user_data.find()
 
-    await message.reply(f"🚀 Mulai broadcast ke {len(users)} user...")
+    await message.reply(f"🚀 Broadcast mulai...")
 
-    for user in users:
+    async for user in users:
         try:
-            await client.send_message(user["user_id"], text)
+            await client.send_message(user['_id'], text)
             sent += 1
             await asyncio.sleep(0.1)
         except FloodWait as e:
