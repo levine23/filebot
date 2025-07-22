@@ -1,5 +1,6 @@
 from pyrogram import Client, filters
 from database.database import add_user, del_user, full_userbase, present_user
+from config import OWNER_ID
 from pymongo import MongoClient
 from pyrogram.errors import FloodWait
 import asyncio
