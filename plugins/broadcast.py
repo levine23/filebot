@@ -9,7 +9,7 @@ import asyncio
 # Simpan user ke database (biar semua yang pernah interaksi tercatat)
 @Client.on_message(filters.private)
 async def save_user(client, message):
-    await users_data.update_one(
+    await user_data.update_one(
         {"user_id": message.from_user.id},
         {"$set": {"user_id": message.from_user.id}},
         upsert=True
